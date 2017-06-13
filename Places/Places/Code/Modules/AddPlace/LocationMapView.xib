@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationMapView" customModule="Places" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="tuT-zM-HZL" id="Ub0-jG-ugG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tuT-zM-HZL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="TXt-3R-VkI"/>
+                    </connections>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tuT-zM-HZL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1yp-1s-1Bn"/>
+                <constraint firstItem="tuT-zM-HZL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q8X-05-lRU"/>
+                <constraint firstAttribute="bottom" secondItem="tuT-zM-HZL" secondAttribute="bottom" id="cCr-MU-lMn"/>
+                <constraint firstAttribute="trailing" secondItem="tuT-zM-HZL" secondAttribute="trailing" id="vG4-73-0Wj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-627.5" y="-158"/>
+        </view>
+    </objects>
+</document>
