@@ -137,7 +137,7 @@ class ImageSlideBoardView: UIView {
             
         }
         
-        horizontalConstraints += "-5-[contentView]"
+        horizontalConstraints += "-5-[contentView]-5-|"
         contentConstraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: horizontalConstraints,
                                                                              options: NSLayoutFormatOptions.alignAllCenterY,
                                                                              metrics: nil,
