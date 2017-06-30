@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     var interactor: AddPlaceInteractor?
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,6 +23,8 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
         self.interactor?.fillCurrentData(name: &nameTextField.text,
                                          description: &placeDescriptionTextField.text,
                                          coordinate: &locationMapView.location)
+        
+        nameTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +51,9 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
             
             self.closeAddPlaceModule()
             
+        } catch PlacesError.NamePlaceIsRequired {
+            self.updateErrorInName(show: true)
+            
         } catch let error {
             print(error)
         }
@@ -57,6 +62,31 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
     func closeAddPlaceModule() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+//MARK: - Visual Error
+    
+    func updateErrorInName(show: Bool) {
+        
+        if show {
+        
+            let animation = CAKeyframeAnimation()
+            animation.keyPath = "position.x"
+            animation.values = [0, 10, -10, 10, -5, 5, -5, 0 ]
+            animation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+            animation.duration = 0.4
+            animation.isAdditive = true
+            
+            self.nameTextField.layer.add(animation, forKey: "shake")
+            
+            self.nameTextField.layer.borderColor = UIColor.redError.cgColor
+            self.nameTextField.layer.cornerRadius = 5
+            self.nameTextField.layer.borderWidth = 1
+        } else {
+            self.nameTextField.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+    
     
 //MARK: - Image slide board delegate
     
@@ -95,5 +125,19 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
                 self.imagesSlideBoardView.addImage(image)
             }
         }
+    }
+    
+//MARK: - UITextfield delegate
+    
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.updateErrorInName(show: false)
+        return true
+    }
+    
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
+        self.updateErrorInName(show: false)
+        return true
     }
 }

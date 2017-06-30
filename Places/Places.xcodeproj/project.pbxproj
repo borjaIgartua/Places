@@ -26,6 +26,7 @@
 		0014E4611EEAA103009FD870 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E4601EEAA103009FD870 /* UIView+Nib.swift */; };
 		0014E4641EEAC885009FD870 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E4631EEAC885009FD870 /* NibDesignable.swift */; };
 		0014E4661EEB0B60009FD870 /* Double+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E4651EEB0B60009FD870 /* Double+Round.swift */; };
+		00A3F5D21F06842B0056B78E /* UIColor+Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3F5D11F06842B0056B78E /* UIColor+Places.swift */; };
 		00FEC9971EED5D5E000F7B5B /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC9951EED5D5E000F7B5B /* Place+CoreDataProperties.swift */; };
 		00FEC9991EED9E1E000F7B5B /* ImageSlideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC9981EED9E1E000F7B5B /* ImageSlideBoardView.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		0014E4601EEAA103009FD870 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Nib.swift"; path = "Code/Extensions/UIView+Nib.swift"; sourceTree = "<group>"; };
 		0014E4631EEAC885009FD870 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NibDesignable.swift; path = Code/Libraries/NibDesignable.swift; sourceTree = "<group>"; };
 		0014E4651EEB0B60009FD870 /* Double+Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double+Round.swift"; path = "Code/Extensions/Double+Round.swift"; sourceTree = "<group>"; };
+		00A3F5D11F06842B0056B78E /* UIColor+Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Places.swift"; sourceTree = "<group>"; };
 		00FEC9951EED5D5E000F7B5B /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Place+CoreDataProperties.swift"; path = "Code/Entities/Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		00FEC9981EED9E1E000F7B5B /* ImageSlideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSlideBoardView.swift; path = Code/Modules/AddPlace/ImageSlideBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				0014E45A1EE9CCFF009FD870 /* CLLocationCoordinate2DExtension.swift */,
 				0014E4601EEAA103009FD870 /* UIView+Nib.swift */,
 				0014E4651EEB0B60009FD870 /* Double+Round.swift */,
+				00A3F5D11F06842B0056B78E /* UIColor+Places.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A3F5D21F06842B0056B78E /* UIColor+Places.swift in Sources */,
 				0014E44C1EE98ECE009FD870 /* AddPlaceViewController.swift in Sources */,
 				0014E4661EEB0B60009FD870 /* Double+Round.swift in Sources */,
 				0014E4641EEAC885009FD870 /* NibDesignable.swift in Sources */,
@@ -397,11 +401,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 737QFM2WYD;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bi.example.Places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -410,11 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 737QFM2WYD;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bi.example.Places;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
