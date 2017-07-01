@@ -125,6 +125,14 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, PlaceInteractor
         return view
     }
     
+    public func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        view.startFloatingAnimation()
+    }
+    
+    public func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        view.stopFloatingAnimation()
+    }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         let index = self.annotations.index(of: view.annotation as! MKPointAnnotation) ?? -1
