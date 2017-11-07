@@ -59,7 +59,7 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
         }
     }
     
-    func closeAddPlaceModule() {
+    @objc func closeAddPlaceModule() {
         self.dismiss(animated: true, completion: nil)
     }
     

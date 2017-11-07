@@ -58,7 +58,7 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, PlaceInteractor
         self.present(navController, animated: true, completion: nil)
     }
     
-    func addPlaceGesture(gesture: UILongPressGestureRecognizer) {
+    @objc func addPlaceGesture(gesture: UILongPressGestureRecognizer) {
         let touchCoordinate = self.placesMapView.convert(gesture.location(in: self.placesMapView), toCoordinateFrom: self.placesMapView)
         self.showAddPlaceModule(location: touchCoordinate)
     }

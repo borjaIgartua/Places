@@ -17,7 +17,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var updateLocationHandler: UpdateLocationHandler?
     
     func startUpdatingLocation(updateLocationHandler: @escaping UpdateLocationHandler) {
-        self.locationManager.requestWhenInUseAuthorization()
+        
+        self.locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
