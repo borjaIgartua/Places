@@ -19,24 +19,17 @@ class PlacesInteractor {
     func retrivePlaces()    {
         
         places.removeAll()
-        
-        
-        
+                
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
                 let managedContext = appDelegate.persistentContainer.viewContext
                 let fetchRequest = Place.placeFetchRequest()
                 
-                DispatchQueue.global(qos: .userInitiated).async {
+                if let retrievedPlaces = try? managedContext.fetch(fetchRequest) {
+                    self.places.append(contentsOf: retrievedPlaces)
+                }
                 
-                    if let retrievedPlaces = try? managedContext.fetch(fetchRequest) {
-                        self.places.append(contentsOf: retrievedPlaces)
-                    }
-                
-                    DispatchQueue.main.async {
-                        self.delegate?.didUpdatePlaces(self.places)
-                    }
-            }
+                self.delegate?.didUpdatePlaces(self.places)
         }
     }
     
