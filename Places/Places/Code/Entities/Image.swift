@@ -1,5 +1,5 @@
 //
-//  Place+CoreDataClass.swift
+//  Image+CoreDataClass.swift
 //  Places
 //
 //  Created by Borja Igartua Pastor on 30/11/17.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Place)
-public class Place: NSManagedObject {
+@objc(Image)
+public class Image: NSManagedObject {
 
 }

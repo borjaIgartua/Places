@@ -13,8 +13,9 @@ import CoreLocation
 class AddPlaceInteractor {
     var location: CLLocationCoordinate2D?
     var place: Place?
-    
-//MARK: - Saving Place
+    var images = [UIImage]()
+    var delegate: AddPlaceInteractorDelegate?
+
     
     func fillCurrentData(name: inout String?, description: inout String?, coordinate: inout CLLocationCoordinate2D?) {
         
@@ -33,7 +34,22 @@ class AddPlaceInteractor {
             description = dec
         }
         
+        if let images = place?.images, images.count > 0 {
+            for placeImage in images {
+                if let image = UIImage(data:(placeImage as! Image).content! as Data) {
+                    self.images.append(image)
+                }
+            }
+            
+            delegate?.updateImages(self.images)
+        }
     }
+    
+    func saveImage(_ image: UIImage) {
+        images.append(image)
+    }
+    
+//MARK: - Saving Place
     
     func savePlace(name: String?, description: String?, coordinate: CLLocationCoordinate2D?) throws {
         
@@ -46,14 +62,17 @@ class AddPlaceInteractor {
         }
         
         if let place = self.place {
-            try self.updatePlace(place, withName: nm, description: description, coordinate: coordinate)
+            try self.updatePlace(place, withName: nm, description: description, coordinate: coordinate, images: images)
             
         } else {
-            try self.addPlace(name: nm, description: description, coordinate: coordinate)
+            try self.addPlace(name: nm, description: description, coordinate: coordinate, images: images)
         }
     }
     
-    private func addPlace(name: String?, description: String?, coordinate: CLLocationCoordinate2D?) throws {
+    private func addPlace(name: String?,
+                          description: String?,
+                          coordinate: CLLocationCoordinate2D?,
+                          images: [UIImage]? = nil) throws {
      
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             throw PlacesError.unknown
@@ -63,14 +82,24 @@ class AddPlaceInteractor {
         let entity = NSEntityDescription.entity(forEntityName: "Place", in: managedContext)!
         let place = NSManagedObject(entity: entity, insertInto: managedContext) as? Place
         
+        let cdImages = try? createImages(images)
+        
         if let place = place {
-            self.setValuesIntoPlace(place, withName: name, description: description, coordinate: coordinate)
+            self.setValuesIntoPlace(place,
+                                    withName: name,
+                                    description: description,
+                                    coordinate: coordinate,
+                                    images: cdImages?.toNSSet())
         }
         
         try managedContext.save()
     }
     
-    private func updatePlace(_ place: Place, withName name: String?, description: String?, coordinate: CLLocationCoordinate2D?) throws {
+    private func updatePlace(_ place: Place,
+                             withName name: String?,
+                             description: String?,
+                             coordinate: CLLocationCoordinate2D?,
+                             images: [UIImage]? = nil) throws {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             throw PlacesError.unknown
@@ -87,13 +116,17 @@ class AddPlaceInteractor {
         if fetchResults.count == 1 {
             
             let place = fetchResults[0]
-            self.setValuesIntoPlace(place, withName: name, description: description, coordinate: coordinate)
+            self.setValuesIntoPlace(place, withName: name, description: description, coordinate: coordinate, images: place.images)
             
             try managedContext.save()
         }
     }
     
-    private func setValuesIntoPlace(_ place: Place, withName name: String?, description: String?, coordinate: CLLocationCoordinate2D?) {
+    private func setValuesIntoPlace(_ place: Place,
+                                    withName name: String?,
+                                    description: String?,
+                                    coordinate: CLLocationCoordinate2D?,
+                                    images: NSSet? = nil) {
         
         place.setValue(name, forKeyPath: "name")
         place.setValue(description, forKey: "placeDescription")
@@ -105,5 +138,37 @@ class AddPlaceInteractor {
         if let longitude = coordinate?.longitude {
             place.setValue(longitude.roundTo7, forKey: "longitude")
         }
+        
+        if let images = images {
+            place.addToImages(images)
+        }
     }
+    
+    private func createImages(_ contents: [UIImage]?) throws -> [Image] {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            throw PlacesError.unknown
+        }
+        
+        guard let contents = contents else {
+            throw PlacesError.unknown
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var images = [Image]()
+        
+        for content in contents {
+            let imageEntity = NSEntityDescription.entity(forEntityName: "Image", in: managedContext)!
+            if let image = NSManagedObject(entity: imageEntity, insertInto: managedContext) as? Image {
+                image.setValue(UIImagePNGRepresentation(content), forKey: "content")
+                images.append(image)
+            }
+        }
+        
+        return images
+    }
+}
+
+protocol AddPlaceInteractorDelegate {
+    func updateImages(_ images: [UIImage])
 }

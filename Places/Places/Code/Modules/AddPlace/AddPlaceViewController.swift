@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, AddPlaceInteractorDelegate {
     var interactor: AddPlaceInteractor?
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -20,6 +20,7 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
         super.viewDidLoad()
         
         imagesSlideBoardView.delegate = self
+        self.interactor?.delegate = self
         self.interactor?.fillCurrentData(name: &nameTextField.text,
                                          description: &placeDescriptionTextField.text,
                                          coordinate: &locationMapView.location)
@@ -98,6 +99,7 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
         picker.dismiss(animated: true)  { [unowned self] in
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 self.imagesSlideBoardView.addImage(image)
+                self.interactor?.saveImage(image)                
             }
         }
     }
@@ -114,5 +116,11 @@ class AddPlaceViewController: UIViewController, ImageSlideBoardViewDelegate, UII
                           replacementString string: String) -> Bool {
         self.nameTextField.animateError(false)
         return true
+    }
+    
+    //MARK: - Interactor delegate
+    
+    func updateImages(_ images: [UIImage]) {
+        self.imagesSlideBoardView.addImages(images)
     }
 }

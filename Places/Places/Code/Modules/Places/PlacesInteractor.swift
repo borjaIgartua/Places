@@ -20,16 +20,16 @@ class PlacesInteractor {
         
         places.removeAll()
                 
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let fetchRequest = Place.placeFetchRequest()
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = Place.placeFetchRequest()
                 
-                if let retrievedPlaces = try? managedContext.fetch(fetchRequest) {
-                    self.places.append(contentsOf: retrievedPlaces)
-                }
+            if let retrievedPlaces = try? managedContext.fetch(fetchRequest) {
+                self.places.append(contentsOf: retrievedPlaces)
+            }
                 
-                self.delegate?.didUpdatePlaces(self.places)
+            self.delegate?.didUpdatePlaces(self.places)
         }
     }
     

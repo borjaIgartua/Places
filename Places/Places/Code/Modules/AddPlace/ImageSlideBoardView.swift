@@ -95,7 +95,7 @@ class ImageSlideBoardView: UIView {
         delegate?.addImage()
     }
     
-    func addImage(_ image: UIImage) {
+    func addImage(_ image: UIImage, animate: Bool = true) {
         
         let addImageView = UIImageView()
         addImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -147,15 +147,21 @@ class ImageSlideBoardView: UIView {
         
         self.contentScrollView.setNeedsLayout()
 
-        UIView.animate(withDuration: 0.5) { 
+        if animate {
+            UIView.animate(withDuration: 0.5) {
                 self.contentScrollView.layoutIfNeeded()
-            print(self.contentScrollView.contentOffset)
-            print(self.contentScrollView.contentSize)
-            print(self.contentScrollView.contentInset)
-            print(self.contentScrollView.bounds)
+            }
+            
+        } else {
+            self.contentScrollView.layoutIfNeeded()
         }
+    }
+    
+    func addImages(_ images: [UIImage]) {
         
-        
+        for image in images {
+            self.addImage(image, animate: false)
+        }
     }
 }
 

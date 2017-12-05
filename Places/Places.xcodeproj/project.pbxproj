@@ -12,7 +12,6 @@
 		0014E4301EE97A7C009FD870 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0014E42E1EE97A7C009FD870 /* Places.xcdatamodeld */; };
 		0014E4321EE97A7C009FD870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0014E4311EE97A7C009FD870 /* Assets.xcassets */; };
 		0014E4351EE97A7C009FD870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0014E4331EE97A7C009FD870 /* LaunchScreen.storyboard */; };
-		0014E4421EE98899009FD870 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E4401EE98899009FD870 /* Place.swift */; };
 		0014E44A1EE98D6B009FD870 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E4491EE98D6B009FD870 /* PlacesViewController.swift */; };
 		0014E44C1EE98ECE009FD870 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E44B1EE98ECE009FD870 /* AddPlaceViewController.swift */; };
 		0014E44E1EE99D86009FD870 /* AddPlaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0014E44D1EE99D86009FD870 /* AddPlaceInteractor.swift */; };
@@ -30,8 +29,12 @@
 		002F38071F07B52200B02C2E /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F38061F07B52200B02C2E /* UIView+Animations.swift */; };
 		003C9F2F1FA0FEC9007F077B /* Vista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C9F2E1FA0FEC9007F077B /* Vista.swift */; };
 		003C9F311FA0FED3007F077B /* Vista.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003C9F301FA0FED3007F077B /* Vista.xib */; };
+		00431B741FD03B94005ADD03 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00431B701FD03B94005ADD03 /* Image.swift */; };
+		00431B751FD03B94005ADD03 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00431B711FD03B94005ADD03 /* Image+CoreDataProperties.swift */; };
+		00431B761FD03B94005ADD03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00431B721FD03B94005ADD03 /* Place.swift */; };
+		00431B771FD03B94005ADD03 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00431B731FD03B94005ADD03 /* Place+CoreDataProperties.swift */; };
+		00431B791FD15C10005ADD03 /* Array+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00431B781FD15C10005ADD03 /* Array+Collection.swift */; };
 		00A3F5D21F06842B0056B78E /* UIColor+Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3F5D11F06842B0056B78E /* UIColor+Places.swift */; };
-		00FEC9971EED5D5E000F7B5B /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC9951EED5D5E000F7B5B /* Place+CoreDataProperties.swift */; };
 		00FEC9991EED9E1E000F7B5B /* ImageSlideBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FEC9981EED9E1E000F7B5B /* ImageSlideBoardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +46,6 @@
 		0014E4311EE97A7C009FD870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0014E4341EE97A7C009FD870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0014E4361EE97A7C009FD870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0014E4401EE98899009FD870 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Code/Entities/Place.swift; sourceTree = "<group>"; };
 		0014E4491EE98D6B009FD870 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesViewController.swift; path = Code/Modules/Places/PlacesViewController.swift; sourceTree = "<group>"; };
 		0014E44B1EE98ECE009FD870 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPlaceViewController.swift; path = Code/Modules/AddPlace/AddPlaceViewController.swift; sourceTree = "<group>"; };
 		0014E44D1EE99D86009FD870 /* AddPlaceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPlaceInteractor.swift; path = Code/Modules/AddPlace/AddPlaceInteractor.swift; sourceTree = "<group>"; };
@@ -61,8 +63,12 @@
 		002F38061F07B52200B02C2E /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		003C9F2E1FA0FEC9007F077B /* Vista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vista.swift; sourceTree = "<group>"; };
 		003C9F301FA0FED3007F077B /* Vista.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Vista.xib; sourceTree = "<group>"; };
+		00431B701FD03B94005ADD03 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Code/Entities/Image.swift; sourceTree = "<group>"; };
+		00431B711FD03B94005ADD03 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "Code/Entities/Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		00431B721FD03B94005ADD03 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Code/Entities/Place.swift; sourceTree = "<group>"; };
+		00431B731FD03B94005ADD03 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Place+CoreDataProperties.swift"; path = "Code/Entities/Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		00431B781FD15C10005ADD03 /* Array+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+Collection.swift"; path = "Code/Extensions/Array+Collection.swift"; sourceTree = "<group>"; };
 		00A3F5D11F06842B0056B78E /* UIColor+Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Places.swift"; sourceTree = "<group>"; };
-		00FEC9951EED5D5E000F7B5B /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Place+CoreDataProperties.swift"; path = "Code/Entities/Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		00FEC9981EED9E1E000F7B5B /* ImageSlideBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSlideBoardView.swift; path = Code/Modules/AddPlace/ImageSlideBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,8 +129,10 @@
 		0014E4451EE988A5009FD870 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				0014E4401EE98899009FD870 /* Place.swift */,
-				00FEC9951EED5D5E000F7B5B /* Place+CoreDataProperties.swift */,
+				00431B701FD03B94005ADD03 /* Image.swift */,
+				00431B711FD03B94005ADD03 /* Image+CoreDataProperties.swift */,
+				00431B721FD03B94005ADD03 /* Place.swift */,
+				00431B731FD03B94005ADD03 /* Place+CoreDataProperties.swift */,
 				0014E4511EE9A888009FD870 /* Error.swift */,
 			);
 			name = Entities;
@@ -188,6 +196,7 @@
 				00A3F5D11F06842B0056B78E /* UIColor+Places.swift */,
 				002F38041F07AF7E00B02C2E /* UITextField+Animations.swift */,
 				002F38061F07B52200B02C2E /* UIView+Animations.swift */,
+				00431B781FD15C10005ADD03 /* Array+Collection.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -278,22 +287,25 @@
 			files = (
 				002F38071F07B52200B02C2E /* UIView+Animations.swift in Sources */,
 				00A3F5D21F06842B0056B78E /* UIColor+Places.swift in Sources */,
+				00431B761FD03B94005ADD03 /* Place.swift in Sources */,
 				0014E44C1EE98ECE009FD870 /* AddPlaceViewController.swift in Sources */,
 				0014E4661EEB0B60009FD870 /* Double+Round.swift in Sources */,
+				00431B771FD03B94005ADD03 /* Place+CoreDataProperties.swift in Sources */,
 				0014E4641EEAC885009FD870 /* NibDesignable.swift in Sources */,
 				002F38051F07AF7E00B02C2E /* UITextField+Animations.swift in Sources */,
 				0014E44A1EE98D6B009FD870 /* PlacesViewController.swift in Sources */,
 				0014E45B1EE9CCFF009FD870 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				0014E4581EE9AD88009FD870 /* LocationManager.swift in Sources */,
-				0014E4421EE98899009FD870 /* Place.swift in Sources */,
 				0014E4611EEAA103009FD870 /* UIView+Nib.swift in Sources */,
-				00FEC9971EED5D5E000F7B5B /* Place+CoreDataProperties.swift in Sources */,
 				0014E4281EE97A7C009FD870 /* AppDelegate.swift in Sources */,
+				00431B751FD03B94005ADD03 /* Image+CoreDataProperties.swift in Sources */,
 				003C9F2F1FA0FEC9007F077B /* Vista.swift in Sources */,
 				0014E4501EE9A28C009FD870 /* PlacesInteractor.swift in Sources */,
+				00431B791FD15C10005ADD03 /* Array+Collection.swift in Sources */,
 				00FEC9991EED9E1E000F7B5B /* ImageSlideBoardView.swift in Sources */,
 				0014E44E1EE99D86009FD870 /* AddPlaceInteractor.swift in Sources */,
 				0014E4521EE9A888009FD870 /* Error.swift in Sources */,
+				00431B741FD03B94005ADD03 /* Image.swift in Sources */,
 				0014E45D1EEA9E15009FD870 /* LocationMapView.swift in Sources */,
 				0014E4301EE97A7C009FD870 /* Places.xcdatamodeld in Sources */,
 			);
