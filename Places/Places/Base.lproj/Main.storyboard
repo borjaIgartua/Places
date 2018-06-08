@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,9 +32,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-bo-Hyq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzD-Mg-Zdy">
+                                <rect key="frame" x="319" y="610" width="41" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="2oh-QI-HAG"/>
+                                    <constraint firstAttribute="width" constant="41" id="D2M-XM-jwJ"/>
+                                </constraints>
+                                <state key="normal" image="round-info"/>
+                                <connections>
+                                    <action selector="infoButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOw-7W-3Th"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OzD-Mg-Zdy" secondAttribute="bottom" constant="15" id="47n-7X-V6B"/>
+                            <constraint firstItem="OzD-Mg-Zdy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-15" id="Krn-fR-QJn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gTG-bo-Hyq" secondAttribute="bottom" id="MMK-Cg-nGw"/>
                             <constraint firstItem="gTG-bo-Hyq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U2j-Po-gBe"/>
                             <constraint firstItem="gTG-bo-Hyq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hES-Pi-lcF"/>
@@ -45,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="Mdb-3U-IaA" id="hEX-u4-0Pj"/>
+                        <outlet property="infoButton" destination="OzD-Mg-Zdy" id="aZs-wc-Pka"/>
                         <outlet property="placesMapView" destination="gTG-bo-Hyq" id="9cy-lL-Gle"/>
                     </connections>
                 </viewController>
@@ -163,5 +177,46 @@
             </objects>
             <point key="canvasLocation" x="295" y="43"/>
         </scene>
+        <!--Info View Controller-->
+        <scene sceneID="JZP-Vq-W5r">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewControllerSBID" id="qdH-wJ-nsm" customClass="InfoViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cDG-5s-Y9Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="OY5-VE-lfD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xWY-SU-pVv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-WZ-24g">
+                                <rect key="frame" x="16" y="69" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sap-Sk-agj" customClass="ActiveLabel" customModule="Places" customModuleProvider="target">
+                                <rect key="frame" x="16" y="109" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="iconMessageLabel" destination="Sap-Sk-agj" id="jO8-uL-jBl"/>
+                        <outlet property="iconsLabel" destination="g0M-WZ-24g" id="HCj-ur-068"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEe-k3-4ao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="293.60000000000002" y="724.58770614692662"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="round-info" width="18" height="18"/>
+    </resources>
 </document>

@@ -16,7 +16,8 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, PlaceInteractor
 
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var placesMapView: MKMapView!
-    
+    @IBOutlet weak var infoButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,13 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, PlaceInteractor
     @IBAction func addPlaceButtonPressed(_ sender: UIButton) {
         
         self.showAddPlaceModule()
+    }
+    
+    @IBAction func infoButtonPressed() {
+
+        let infoViewController = self.storyboard!.instantiateViewController(withIdentifier: "InfoViewControllerSBID")
+        let navigationController = UINavigationController(rootViewController: infoViewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func showAddPlaceModule(location: CLLocationCoordinate2D? = nil, place: Place? = nil) {
